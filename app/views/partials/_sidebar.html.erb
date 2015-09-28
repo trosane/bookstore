@@ -1,0 +1,20 @@
+<% if params[:controller] == 'about' %>
+	<div class="well">
+		<h3>Bookstore Info</h3>
+		<ul>
+			<li>Ruby Bookstore</li>
+			<li>18956 Inspiration Circle</li>
+			<li>Eagle River, AK 99577</li>
+			<li>Phone: (123) 456-7890</li>
+			<li>Email: support@rubybooks.com</li>
+		</ul>
+	</div>
+<% end %>
+
+<% if params[:controller] == 'books' && params[:action] == 'index' || params[:action] == 'show' %>
+	<div class="list-group">
+		<% @categories.each do |category| %>
+			<%= link_to category.name, category_path(category.id), class:'list-group-item' %>
+		<% end %>
+	</div>
+<% end %>
